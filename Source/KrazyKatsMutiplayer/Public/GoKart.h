@@ -36,6 +36,12 @@ public:
 	
 	UPROPERTY(EditAnywhere)
 	float MaxDegreePerSecond = 90.0f;
+	
+	UPROPERTY(EditAnywhere)
+	float DragCoefficient = 16.0f;
+	
+	UPROPERTY(EditAnywhere)
+	float RollingResistanceCoefficient = 0.015f;
 
 
 private:
@@ -49,6 +55,8 @@ private:
 	void MoveForward(float Value);
 	void MoveRight(float Value);
 	void ApplyRotation(float DeltaTime);
+	FVector GetAirResistance();
+	FVector GetRollingResistance();
 	
 	/*
 		Private variables
