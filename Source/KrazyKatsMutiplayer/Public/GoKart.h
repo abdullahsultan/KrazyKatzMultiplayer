@@ -35,7 +35,7 @@ public:
 	float MaxDrivingForce = 10000.0f;
 	
 	UPROPERTY(EditAnywhere)
-	float MaxDegreePerSecond = 90.0f;
+	float MinTurningRadius = 10.0f;
 	
 	UPROPERTY(EditAnywhere)
 	float DragCoefficient = 16.0f;
