@@ -68,4 +68,10 @@ private:
 	FVector Velocity;
 	float Throttle;
 	float SteeringThrow;
+
+	UPROPERTY(Replicated)
+		FVector ReplicatedLocation;
+
+	UPROPERTY(Replicated)
+		FRotator ReplicatedRotation;
 };
