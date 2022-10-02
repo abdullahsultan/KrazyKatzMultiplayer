@@ -65,8 +65,11 @@ private:
 	/*
 		Private variables
 	*/
+	UPROPERTY(Replicated)
 	FVector Velocity;
+	UPROPERTY(Replicated)
 	float Throttle;
+	UPROPERTY(Replicated)
 	float SteeringThrow;
 
 	UPROPERTY(ReplicatedUsing = OnRep_ReplicatedTranform)
