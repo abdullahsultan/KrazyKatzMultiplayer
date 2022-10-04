@@ -87,9 +87,7 @@ private:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	void UpdateLocationFromVelocity(float DeltaTime);
 	UFUNCTION(Server, Reliable, WithValidation)
-	void Server_MoveForward(float Value);
-	UFUNCTION(Server, Reliable, WithValidation)
-	void Server_MoveRight(float Value);
+	void Server_SendMove(FGoKartMove Move);
 	void ApplyRotation(float DeltaTime);
 	FVector GetAirResistance();
 	FVector GetRollingResistance();
@@ -104,9 +102,9 @@ private:
 	UPROPERTY(Replicated)
 	float SteeringThrow;
 
-	UPROPERTY(ReplicatedUsing = OnRep_ReplicatedTranform)
-		FTransform ReplicatedTranform;
+	UPROPERTY(ReplicatedUsing = OnRep_ServerState)
+	FGoKartState ServerState;
 
 	UFUNCTION()
-		void OnRep_ReplicatedTranform();
+		void OnRep_ServerState();
 };
