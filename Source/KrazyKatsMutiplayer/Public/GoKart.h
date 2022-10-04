@@ -88,18 +88,16 @@ private:
 	void UpdateLocationFromVelocity(float DeltaTime);
 	UFUNCTION(Server, Reliable, WithValidation)
 	void Server_SendMove(FGoKartMove Move);
-	void ApplyRotation(float DeltaTime);
+	void ApplyRotation(float DeltaTime, float SteeringThrowPram);
 	FVector GetAirResistance();
 	FVector GetRollingResistance();
-	
+	void SimulateMove(FGoKartMove Move);
 	/*
 		Private variables
 	*/
 	UPROPERTY(Replicated)
 	FVector Velocity;
-	UPROPERTY(Replicated)
 	float Throttle;
-	UPROPERTY(Replicated)
 	float SteeringThrow;
 
 	UPROPERTY(ReplicatedUsing = OnRep_ServerState)
